@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <title>Giphy</title>
+    <title>Giphy Band Search</title>
 </head>
 
 <body>
@@ -16,8 +16,9 @@
     <div id="buttons-view"></div>
     <div id="images"></div>
 
-    
-    
+    <br>
+    <br>
+
     <button data-search="Queens Of The Stone Age">Queens Of The Stone Age</button>
     <!--Using these as test buttons from Button Trigger AJAX video-->
     <button data-search="The Raconteurs">The Raconteurs</button>
@@ -29,15 +30,18 @@
     <button data-search="Sonic Youth">Sonic Youth</button>
 
 
+    <!--Need to do the search form for the query-->
     <form id="band-form">
         <label for="band-input">Search for a Band!</label>
         <input type="text" id="band-input"><br>
 
+        <input id="add-band" type="submit" value="Add a Band">
+
     </form>
 
-    <div class="rating band-image">
+    <div class="band-image rating">
         <p></p>
-        
+
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

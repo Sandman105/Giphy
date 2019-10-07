@@ -11,6 +11,7 @@ $("button").on("click", function () {
 
     console.log(x);
 
+    //Need to narrow the query request, so maybe need to put music+bands for the search query, so q=music+bands.
     var queryURl = "https://api.giphy.com/v1/gifs/search?q=" + x + "&apikey=MrAcjsEMyvdkFPuwhAIhH1MxVGfHbjWi&limit=10&rating=g&";
 
     console.log("---------------");
@@ -58,19 +59,44 @@ $("button").on("click", function () {
 });
 
 
+function renderButtons() {
 
-//$("#buttons-view").empty();
+    $("#buttons-view").empty();
 
 
-/* for (var i = 0; i < topics.length; i++) {
+    for (var i = 0; i < topics.length; i++) {
 
-    var a = $("<button>");
-    a.addClass("bands");
-    a.attr("data-name", topics[i]);
-    a.text(topics[i]);
-    $("#buttons-view").append(a);
+        var a = $("<button>");
+        a.addClass("bands");
+        a.attr("data-name", topics[i]);
+        a.text(topics[i]);
+        $("#buttons-view").append(a);
 
-} */
+    }
+
+}
+
+$("#add-band").on("click", function (event) {
+    console.log("My Test: " + event);
+
+    event.preventDefault();
+
+    var topic = $("#band-input").val().trim();
+
+    topics.push(topic);
+
+    renderButtons();
+
+});
+
+
+renderButtons();
+
+
+
+
+
+
 
 
 
