@@ -1,7 +1,7 @@
 //VARIABLES ==================================================================
 
 //Made the empty array called "topics" Need to put some strings related to the topic that interests me. So I did the API search already for Anthony Bourdain, now I need to think of whatever other topics. 
-var topics = ["Queens Of The Stone Age", "The Raconteurs", "Kurt Vile", "The Dead Weather", "The Kills", "Eagles Of Death Metal", "Iggp Pop", "Anthony Bourdain"];
+var topics = ["Queens Of The Stone Age", "The Raconteurs", "Kurt Vile", "Oasis", "Elliott Smith", "The Ramones", "Iggp Pop", "Sonic Youth"];
 
 $("button").on("click", function () {
 
@@ -24,8 +24,14 @@ $("button").on("click", function () {
         .then(function (response) {
             console.log(response.data[0].images.downsized.url);
 
-            $(".rating").append("<p> Rating: " + response.data[0].rating + "</p>");
-            $(".band-image").append("<img src=' " + response.data[0].images.fixed_height_still.url + "'>'");
+            for (var i = 0; i < response.data.length; i++) {
+                $(".rating").prepend("<p> Rating: " + response.data[i].rating + "</p>");
+                $(".band-image").prepend("<img src=' " + response.data[i].images.fixed_height_still.url + "'>'");
+
+            }
+
+
+
 
         });
 
