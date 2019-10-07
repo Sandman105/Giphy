@@ -5,46 +5,46 @@ var topics = ["Queens Of The Stone Age", "The Raconteurs", "Kurt Vile and The Vi
 
 //$("#button-view").on("click", function () {
 
-    var queryParam = { "apiKey": "MrAcjsEMyvdkFPuwhAIhH1MxVGfHbjWi" };
-    var queryURl = "http://api.giphy.com/v1/gifs/search?q=music+rock+bands&limit=10&rating=g&apikey=MrAcjsEMyvdkFPuwhAIhH1MxVGfHbjWi";
+//var queryParam = { "apiKey": "MrAcjsEMyvdkFPuwhAIhH1MxVGfHbjWi" };
+var queryURl = "https://api.giphy.com/v1/gifs/search?q=queens+of+the+stone+age&limit=10&rating=g&apikey=MrAcjsEMyvdkFPuwhAIhH1MxVGfHbjWi";
 
 
-    $.ajax({
-        url: queryURl,
-        method: "GET"
-    })
+$.ajax({
+    url: queryURl,
+    method: "GET"
+})
 
-         .then(function (response) {
-            console.log(response);
+    .then(function (response) {
+        console.log(response);
 
-            var imageURL = response.data.images.downsized;
+        var imageURL = response.data.images;
 
-            var rockBands = $("<img>");
+        var rockBands = $("<img>");
 
-            rockBands.attr("src", imageURL);
-            rockBands.attr("alt", "QOTSA");
+        rockBands.attr("src", imageURL);
+        rockBands.attr("alt", "QOTSA");
 
-            $("images").prepend(rockBands);
-
-
+        $("images").append(rockBands);
 
 
-        }); 
+
+
+    });
+
 
 
     //$("#buttons-view").empty();
 
     for (var i = 0; i < topics.length; i++) {
 
-        var a = $("<button>");
-        a.addClass("bands");
-        a.attr("data-name", topics[i]);
-        a.text(topics[i]);
-        $("#buttons-view").append(a);
-
-
+    var a = $("<button>");
+    a.addClass("bands");
+    a.attr("data-name", topics[i]);
+    a.text(topics[i]);
+    $("#buttons-view").append(a);
 
     }
+
 
 
 
