@@ -1,7 +1,7 @@
 //VARIABLES ==================================================================
 
 //Made the empty array called "topics" Need to put some strings related to the topic that interests me. So I did the API search already for Anthony Bourdain, now I need to think of whatever other topics. 
-var topics = ["Queens Of The Stone Age", "The Raconteurs", "Kurt Vile", "Oasis", "Elliott Smith", "The Ramones", "Iggp Pop", "Sonic Youth"];
+var topics = ["Queens Of The Stone Age", "The Raconteurs", "Kurt Vile", "Oasis", "Elliott Smith", "The Ramones", "Iggy Pop", "Sonic Youth"];
 
 $(document).on("click", ".bands", function () {
 
@@ -26,13 +26,20 @@ $(document).on("click", ".bands", function () {
         .then(function (response) {
             console.log(response.data[0].images.downsized.url);
 
-            for (var i = 0; i < response.data.length; i++) {
-                $(".rating").prepend("<p> Rating: " + response.data[i].rating + "</p>");
-                $(".band-image").prepend("<img src=' " + response.data[i].images.fixed_height_still.url + "'>'");
+            //TODO: Thinking maybe the click function for the gif will go here, so it wraps around the for loop.
+            //$(".gif").on("click", function() {
+                
+                for (var i = 0; i < response.data.length; i++) {
+                    $(".rating").prepend("<p> Rating: " + response.data[i].rating + "</p>");
+                    $(".band-image").prepend("<img src=' " + response.data[i].images.fixed_height_still.url + "'>'");
+                    //TODO: Still trying to figure out the animation part, fairly certain I will need to create some new tags, like the special attribute one used already, data-.
 
-            }
+                    /* var imageState = $(this).attr("data-state");
+                    imageState.addClass("gif");
+                    imageState.attr("data-animate", response.data[i].images.downsized.url); */
+                }
 
-
+            //});
 
 
         });
