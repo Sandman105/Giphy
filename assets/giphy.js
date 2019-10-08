@@ -3,13 +3,14 @@
 //Made the empty array called "topics" Need to put some strings related to the topic that interests me. So I did the API search already for Anthony Bourdain, now I need to think of whatever other topics. 
 var topics = ["Queens Of The Stone Age", "The Raconteurs", "Kurt Vile", "Oasis", "Elliott Smith", "The Ramones", "Iggp Pop", "Sonic Youth"];
 
-$("button").on("click", function () {
+$(document).on("click", ".bands", function () {
 
-    var x = $(this).data("search");
+    var x = $(this).data("name");
+    console.log(this);
 
     //To make sure we know which button is pushed, now each button in the HTML has a data-search tag. I do like the more dynamic way the for loop pushed the names to the <button>. Will try this for now and maybe revert once it becomes a little clearer.
 
-    console.log(x);
+    console.log("Band name: " + x);
 
     //Need to narrow the query request, so maybe need to put music+bands for the search query, so q=music+bands.
     var queryURl = "https://api.giphy.com/v1/gifs/search?q=" + x + "&apikey=MrAcjsEMyvdkFPuwhAIhH1MxVGfHbjWi&limit=10&rating=g&";
@@ -36,29 +37,12 @@ $("button").on("click", function () {
 
         });
 
-    //var queryParam = { "apiKey": "MrAcjsEMyvdkFPuwhAIhH1MxVGfHbjWi" };
-
-
-
-
-
-
-
-    /* var imageURL = response.data.images;
-
-    var rockBands = $("<img>");
-
-    rockBands.attr("src", imageURL);
-    rockBands.attr("alt", "QOTSA");
-
-    $("images").append(rockBands); */
-
 
 
 
 });
 
-
+//Adding new buttons dynamically to the page, new buttons are adding now, TODO: but now just need to link new buttons to AJAX request. Ok now the buttons are working with the AJAX call, my class "bands" was not in the click function, document. And my variable x did not have the correct attribute reference of data-name. 
 function renderButtons() {
 
     $("#buttons-view").empty();
@@ -93,22 +77,12 @@ $("#add-band").on("click", function (event) {
 renderButtons();
 
 
-
-
-
-
-
-
-
-
-    //I'll need to create an initialize function to clear the search field and to be able to create the new button to retrieve 10 objects with a rating of g.
-
     //function initializeGiphySearch() {
 
 
     //}
 
-    //for loop buttons come up dynamically when I pulled them out of my initialize function, I've done this one before, but the buttons are working.
+
 
 
 

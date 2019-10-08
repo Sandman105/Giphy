@@ -1,0 +1,22 @@
+body {
+    font-family: 'Cairo', sans-serif;
+    background: #666666;
+}
+
+h1 {
+    font-weight: 600;
+}
+
+label {
+    font-weight: 600;
+}
+
+.rating {
+    font-weight: 600;
+}
+
+#add-band, .bands {
+    color: crimson;
+    background: black;
+    font-weight: 600;
+}
