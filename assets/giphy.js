@@ -32,6 +32,7 @@ $(document).on("click", ".bands", function () {
                 for (var i = 0; i < response.data.length; i++) {
                     $(".rating").prepend("<p> Rating: " + response.data[i].rating + "</p>");
                     $(".band-image").prepend("<img src=' " + response.data[i].images.fixed_height_still.url + "'>'");
+                    
                     //TODO: Still trying to figure out the animation part, fairly certain I will need to create some new tags, like the special attribute one used already, data-.
 
                     /* var imageState = $(this).attr("data-state");
