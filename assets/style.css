@@ -4,10 +4,13 @@ body {
 }
 
 h1 {
+    font-family: 'Permanent Marker', cursive;
     font-weight: 600;
 }
 
 label {
+    font-family: 'Permanent Marker', cursive;
+    font-size: 20px;
     font-weight: 600;
 }
 
