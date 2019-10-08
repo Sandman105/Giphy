@@ -28,17 +28,42 @@ $(document).on("click", ".bands", function () {
 
             //TODO: Thinking maybe the click function for the gif will go here, so it wraps around the for loop.
             //$(".gif").on("click", function() {
-                
-                for (var i = 0; i < response.data.length; i++) {
-                    $(".rating").prepend("<p> Rating: " + response.data[i].rating + "</p>");
-                    $(".band-image").prepend("<img src=' " + response.data[i].images.fixed_height_still.url + "'>'");
-                    
-                    //TODO: Still trying to figure out the animation part, fairly certain I will need to create some new tags, like the special attribute one used already, data-.
 
-                    /* var imageState = $(this).attr("data-state");
-                    imageState.addClass("gif");
-                    imageState.attr("data-animate", response.data[i].images.downsized.url); */
-                }
+            for (var i = 0; i < response.data.length; i++) {
+                $(".rating").prepend("<p> Rating: " + response.data[i].rating + "</p>");
+                //$("#band-image").prepend("<img src=' " + response.data[i].images.fixed_height_still.url + "'>'");
+
+
+                //Good way to shorten the amount of typing since I will be using response.data over and over.
+                var bandResults = response.data;
+
+                var imageState = $("<img>");
+                imageState.attr("src", bandResults[i].images.fixed_height_still.url);
+                imageState.attr("data-still", bandResults[i].images.fixed_height_still.url);
+                imageState.attr("data-animate", bandResults[i].images.downsized.url);
+                imageState.attr("data-state", "still");
+                imageState.addClass("gif");
+
+
+                /* $("src").prepend(bandResults[i].fixed_height_still.url);
+                $("data-still").prepend(bandResults[i].images.fixed_height_still.url);
+                $("data-animate").prepend(bandResults[i].downsized.url); */
+
+                //I want to still use my .band-image class 
+                $("#band-image").prepend(imageState);
+
+
+
+
+
+                //TODO: Still trying to figure out the animation part, fairly certain I will need to create some new tags, like the special attribute one used already, data-.
+
+
+                /* var imageState = $(this).attr("data-state");
+                imageState.addClass("gif");
+                imageState.attr("data-animate", response.data[i].images.downsized.url); */
+                //data-still, animate 
+            }
 
             //});
 
@@ -80,6 +105,21 @@ $("#add-band").on("click", function (event) {
     renderButtons();
 
 });
+
+$(document).on("click", ".gif", function () {
+
+    var state = $(this).attr("data-state");
+
+    if (state === "still") {
+        $(this).attr("src", $(this).attr("data-animate"));
+        $(this).attr("data-state", "animate");
+    } else {
+        $(this).attr("src", $(this).attr("data-still"));
+        $(this).attr("data-state", "still");
+    }
+});
+
+
 
 
 renderButtons();
