@@ -44,6 +44,9 @@ $(document).on("click", ".bands", function () {
                 imageState.attr("data-animate", bandResults[i].images.downsized.url);
                 imageState.attr("data-state", "still");
                 imageState.addClass("gif");
+                imageState.addClass("img-fluid");
+                imageState.attr("alt", "Responsive image");
+                imageState.addClass("rounded");
                 //Tried to add audio to the gif, created a data-music tag attribute for <img>, but no go, got now. Addendum, so did a search and said no way to add audio to gif, would need to create video for that.
 
 
@@ -110,8 +113,8 @@ $("#add-band").on("click", function (event) {
     console.log("Band name added to button: " + topic);
 });
 
-//Jon TA checked this click function again, works with .gif class selector. Had it that way originally, might no have reloaded the page when I tried. Used document as the selector, worked. But reverted back to .gif after testing good this time. Another addendum to this comment, I was testing my repo link when changing back to .gif, double checked, this class selector .gif is not working, rolling back to document for now.
-$(document).on("click", ".gif", function () {
+//Jon TA checked this click function again, works with .gif class selector. Had it that way originally, might no have reloaded the page when I tried. Used document as the selector, worked. But reverted back to .gif after testing good this time. Another addendum to this comment, I was testing my repo link when changing back to .gif, double checked, this class selector .gif is not working, rolling back to document for now. Another addendum, changed document selector to #band-image ID, left .gif class, now works. Placement of selectors and knowing the click is on the image ID, band-image.
+$("#band-image").on("click", ".gif", function () {
 
     var state = $(this).attr("data-state");
 
