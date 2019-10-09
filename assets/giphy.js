@@ -44,6 +44,7 @@ $(document).on("click", ".bands", function () {
                 imageState.attr("data-animate", bandResults[i].images.downsized.url);
                 imageState.attr("data-state", "still");
                 imageState.addClass("gif");
+                //Tried to add audio to the gif, created a data-music tag attribute for <img>, but no go, got now. Addendum, so did a search and said no way to add audio to gif, would need to create video for that.
 
 
                 //I wanted to still use my .band-image class, but changed it to an ID instead since it's just referencing one element, <img>.
