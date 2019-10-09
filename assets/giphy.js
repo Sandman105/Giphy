@@ -1,7 +1,7 @@
 //VARIABLES ==================================================================
 
 //Made the empty array called "topics" Need to put some strings related to the topic that interests me. So I did the API search already for Anthony Bourdain, now I need to think of whatever other topics. 
-var topics = ["Queens Of The Stone Age", "The Raconteurs", "Kurt Vile", "Oasis", "Elliott Smith", "The Ramones", "Iggy Pop", "Sonic Youth", "Metallica"];
+var topics = ["Queens Of The Stone Age", "The Raconteurs", "Kurt Vile", "Oasis", "Elliott Smith", "The Ramones", "Iggy Pop", "Sonic Youth", "Metallica", "Lindsey Buckingham"];
 
 $(document).on("click", ".bands", function () {
 
