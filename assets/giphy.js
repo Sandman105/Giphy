@@ -26,11 +26,12 @@ $(document).on("click", ".bands", function () {
         .then(function (response) {
             console.log(response.data[0].images.downsized.url);
 
-            //TODO: Thinking maybe the click function for the gif will go here, so it wraps around the for loop.
-            //$(".gif").on("click", function() {
+
 
             for (var i = 0; i < response.data.length; i++) {
                 $(".rating").prepend("<p> Rating: " + response.data[i].rating + "</p>");
+
+                //Original test to display API call for band-image ID.
                 //$("#band-image").prepend("<img src=' " + response.data[i].images.fixed_height_still.url + "'>'");
 
 
@@ -45,27 +46,25 @@ $(document).on("click", ".bands", function () {
                 imageState.addClass("gif");
 
 
-                /* $("src").prepend(bandResults[i].fixed_height_still.url);
-                $("data-still").prepend(bandResults[i].images.fixed_height_still.url);
-                $("data-animate").prepend(bandResults[i].downsized.url); */
-
-                //I want to still use my .band-image class 
+                //I wanted to still use my .band-image class, but changed it to an ID instead since it's just referencing one element, <img>.
                 $("#band-image").prepend(imageState);
 
+                console.log("-----------------------");
+                console.log("Still image src: " + bandResults[i].images.fixed_height_still.url);
+                console.log("Still image data-still: " + bandResults[i].images.fixed_height_still.url);
+                console.log("Animated image, data-animate: " + bandResults[i].images.downsized.url);
 
 
 
 
-                //TODO: Still trying to figure out the animation part, fairly certain I will need to create some new tags, like the special attribute one used already, data-.
 
 
-                /* var imageState = $(this).attr("data-state");
-                imageState.addClass("gif");
-                imageState.attr("data-animate", response.data[i].images.downsized.url); */
-                //data-still, animate 
+
+
+
             }
 
-            //});
+
 
 
         });
@@ -89,10 +88,13 @@ function renderButtons() {
         a.text(topics[i]);
         $("#buttons-view").append(a);
 
+        console.log("Buttons for bands: " + a);
     }
+
 
 }
 
+//Adding new buttons when add band button is clicked renderButtons(); function called to render <button>.
 $("#add-band").on("click", function (event) {
     console.log("My Test: " + event);
 
@@ -103,9 +105,11 @@ $("#add-band").on("click", function (event) {
     topics.push(topic);
 
     renderButtons();
-
+    console.log("------------------");
+    console.log("Band name added to button: " + topic);
 });
 
+//Jon TA checked this click function again, works with .gif class selector. Had it that way originally, might no have reloaded the page when I tried. Used document as the selector, worked. But reverted back to .gif after testing good this time. Another addendum to this comment, I was testing my repo link when changing back to .gif, double checked, this class selector .gif is not working, rolling back to document for now.
 $(document).on("click", ".gif", function () {
 
     var state = $(this).attr("data-state");
@@ -117,6 +121,8 @@ $(document).on("click", ".gif", function () {
         $(this).attr("src", $(this).attr("data-still"));
         $(this).attr("data-state", "still");
     }
+    console.log("data-animate");
+    console.log("data-still");
 });
 
 
@@ -125,10 +131,7 @@ $(document).on("click", ".gif", function () {
 renderButtons();
 
 
-    //function initializeGiphySearch() {
 
-
-    //}
 
 
 
